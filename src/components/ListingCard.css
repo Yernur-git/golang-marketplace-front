@@ -1,0 +1,148 @@
+.lcard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.35s var(--ease-out);
+  animation: fadeUp 0.6s var(--ease-out) backwards;
+}
+
+.lcard:hover {
+  border-color: var(--border-accent);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.lcard-visual {
+  height: 190px;
+  background: linear-gradient(160deg, #151518, #1a1820, #181520);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lcard-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(200, 164, 78, 0.06), transparent 60%);
+}
+
+.lcard-visual-shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(200, 164, 78, 0.03) 45%,
+    rgba(200, 164, 78, 0.06) 50%,
+    rgba(200, 164, 78, 0.03) 55%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.8s var(--ease-out);
+  pointer-events: none;
+}
+
+.lcard:hover .lcard-visual-shine {
+  transform: translateX(30%);
+}
+
+.lcard-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.lcard:hover .lcard-img {
+  transform: scale(1.05);
+}
+
+.lcard-icon {
+  color: var(--accent-dim);
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  transition: transform 0.35s var(--ease-spring);
+  position: relative;
+  z-index: 1;
+}
+
+.lcard:hover .lcard-icon {
+  transform: scale(1.08);
+  color: var(--accent);
+}
+
+.lcard-body {
+  padding: 16px 18px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.lcard-cat {
+  font-size: 0.68rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.lcard-title {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lcard-bottom {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.lcard-price {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-bright);
+}
+
+.lcard-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.lcard-meta span:not(:last-child)::after {
+  content: '·';
+  margin-left: 8px;
+  color: var(--text-muted);
+}
+
+.lcard-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+}
